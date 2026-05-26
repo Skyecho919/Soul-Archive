@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quantum Soul Nexus - Secure Archive</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { 
+      background: #000;
+      color: #00FF9F;
+      font-family: 'Courier New', monospace;
+      image-rendering: pixelated;
+    }
+    .crt {
+      background: #001100;
+      box-shadow: 0 0 30px #00FF9F;
+      border: 8px solid #222;
+      position: relative;
+    }
+    .crt::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: repeating-linear-gradient(
+        to bottom,
+        transparent 0px,
+        rgba(0,255,159,0.08) 1px,
+        transparent 2px
+      );
+      pointer-events: none;
+      animation: scan 4s linear infinite;
+    }
+    @keyframes scan {
+      0% { transform: translateY(-100%); }
+      100% { transform: translateY(100%); }
+    }
+    .terminal-header {
+      background: #002200;
+      border-bottom: 4px solid #00FF9F;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+
+<div class="crt w-full max-w-4xl mx-auto p-8 text-sm leading-relaxed">
+
+  <!-- 標題 -->
+  <div class="terminal-header p-4 text-center mb-8">
+    <h1 class="text-3xl font-bold tracking-widest">QUANTUM SOUL NEXUS</h1>
+    <p class="text-xs mt-1 opacity-75">SECURE INTERNAL ARCHIVE • LEVEL 7 CLEARANCE</p>
+  </div>
+
+  <!-- 導航 -->
+  <div class="flex gap-2 mb-8 border-b border-[#00FF9F]/30 pb-4">
+    <button onclick="showPage(0)" class="nav-btn active px-6 py-2 border border-[#00FF9F] hover:bg-[#00FF9F]/10">HOME</button>
+    <button onclick="showPage(1)" class="nav-btn px-6 py-2 border border-[#00FF9F] hover:bg-[#00FF9F]/10">PERSONNEL</button>
+    <button onclick="showPage(2)" class="nav-btn px-6 py-2 border border-[#00FF9F] hover:bg-[#00FF9F]/10">SYSTEM REPORT</button>
+    <button onclick="showPage(3)" class="nav-btn px-6 py-2 border border-[#00FF9F] hover:bg-[#00FF9F]/10">THE TRUTH</button>
+    <button onclick="showPage(4)" class="nav-btn px-6 py-2 border border-[#00FF9F] hover:bg-[#00FF9F]/10">SECURITY NOTICE</button>
+  </div>
+
+  <!-- 第1頁：首頁 -->
+  <div id="page-0" class="page">
+    <h2 class="text-2xl mb-4">WELCOME, OPERATOR</h2>
+    <p class="mb-6">Access to the Quantum Soul Nexus Internal Archive has been granted.</p>
+    <p class="opacity-75">This archive contains declassified information regarding Project Nexus. Please review with care.</p>
+    <div class="mt-12 text-xs opacity-50">
+      System Online • 17/05/2026 • 21:47:33
+    </div>
+  </div>
+
+  <!-- 第2頁：人物關係 -->
+  <div id="page-1" class="page hidden">
+    <h2 class="text-2xl mb-6">PERSONNEL DOSSIER</h2>
+    <div class="space-y-8">
+      <div><strong>Dr. Victor Voss</strong> — Founder & Chief Quantum Architect</div>
+      <div><strong>Elara</strong> — The woman who inspired the entire project. Her words: “I wish flowers would never wither.”</div>
+      <div><strong>Elizabeth Voss (Mother)</strong> — Victor’s mother. Source of his deepest fear of loss.</div>
+      <div><strong>Michael Voss (Father)</strong> — Mechanical engineer. Died in a car accident in 1985.</div>
+      <div><strong>Theo</strong> — Victor’s only assistant. Maintained the system alone for nearly 20 years.</div>
+      <div><strong>Alex (You)</strong> — Former researcher. Terminated after unauthorized access attempt.</div>
+    </div>
+  </div>
+
+  <!-- 第3頁：機器用途 -->
+  <div id="page-2" class="page hidden">
+    <h2 class="text-2xl mb-6">SYSTEM OVERVIEW</h2>
+    <p><strong>Project Name:</strong> Quantum Soul Nexus</p>
+    <p><strong>Purpose:</strong> Extraction and permanent storage of human consciousness into isolated pocket dimensions.</p>
+    <p class="mt-4">Official goal: Preserve loved ones forever.</p>
+    <p class="mt-6 text-red-400">Actual result: Consciousness is trapped in decaying simulated rooms.</p>
+  </div>
+
+  <!-- 第4頁：真相 -->
+  <div id="page-3" class="page hidden">
+    <h2 class="text-2xl mb-6">THE TRUTH ABOUT ETERNITY</h2>
+    <p>The machine does not create true eternity.</p>
+    <p>It only locks consciousness inside a simulated space that slowly collapses over time.</p>
+    <p class="mt-8">What Victor called “preservation” was in reality a prison.</p>
+    <p class="mt-6 text-yellow-300">Eternal life was never achieved — only eternal confinement.</p>
+  </div>
+
+  <!-- 第5頁：開除公告 -->
+  <div id="page-4" class="page hidden">
+    <h2 class="text-2xl mb-6">INTERNAL SECURITY NOTICE</h2>
+    <p class="text-red-400 font-bold">TERMINATION OF PERSONNEL</p>
+    <p class="mt-4">Researcher Alex was terminated effective immediately after attempting unauthorized soul extraction on themselves.</p>
+    <p class="mt-6">All access privileges have been revoked.</p>
+    <p class="mt-8 text-xs opacity-70">Any further attempts to access the Nexus will be considered a direct threat to the organization.</p>
+    <p class="mt-12 text-xs">— Quantum Soul Nexus Security Division</p>
+  </div>
+
+</div>
+
+<script>
+function showPage(n) {
+  document.querySelectorAll('.page').forEach(p => p.classList.add('hidden'));
+  document.getElementById('page-' + n).classList.remove('hidden');
+  
+  document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active', 'bg-[#00FF9F]', 'text-black'));
+  document.querySelectorAll('.nav-btn')[n].classList.add('active', 'bg-[#00FF9F]', 'text-black');
+}
+</script>
+
+</body>
+</html>
